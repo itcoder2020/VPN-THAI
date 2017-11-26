@@ -15,26 +15,6 @@ if [ $MYIP = "" ]; then
 fi
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
-#check jika script sudah pernah diinput
-scriptname='sshvpn';
-mkdir -p /var/lib/setup-log
-echo " " >> /var/lib/setup-log/setup.txt
-scriptchecker=`cat /var/lib/setup-log/setup.txt | grep $scriptname`;
-if [ "$scriptchecker" != "" ]; then
-		clear
-		echo -e " ";
-		echo -e "Error! Anda sudah pernah memasukkan script ini sebelumnya";
-		echo -e "Script ini hanya boleh dimasukkan 1x saja!";
-		echo -e "---";
-		echo -e "Jika Anda sebelumnya gagal dalam instalasi, Mohon untuk reinstall OS VPS Anda lebih dulu!";
-		echo -e "Anda dapat mereinstall OS VPS Anda melalui VPS Control Panel";
-		echo -e "Cara Mengakses VPS Control Panel: bit.ly/caraaksesvpspanel";
-		echo -e " ";
-        exit 0;
-	else
-		echo "";
-fi
-echo "$scriptname" >> /var/lib/setup-log/setup.txt
 
 # go to root
 cd
@@ -158,8 +138,8 @@ document_root='$document_root'
 fastcgi_script_name='$fastcgi_script_name'
 cat > /etc/nginx/conf.d/vps.conf <<END4
 server {
-  listen       80;
-  server_name  27.0.0.1 localhost;
+  listen       85;
+  server_name  127.0.0.1 localhost;
   access_log /var/log/nginx/vps-access.log;
   error_log /var/log/nginx/vps-error.log error;
   root   /home/vps/public_html;
@@ -534,19 +514,19 @@ echo "   - mtr"  | tee -a log-install.txt
 echo "   - nethogs"  | tee -a log-install.txt
 echo "   - screenfetch"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "[#000066]------------------Informasi Premium Script----------------------"  | tee -a log-install.txt
-echo "   [#000066]-----------------ENTER-------------------: menu"  | tee -a log-install.txt
+echo "Informasi Premium Script"  | tee -a log-install.txt
+echo "   Perintah untuk menampilkan daftar perintah: menu"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "    [#000066]script setup VPS--------------------------------------"| tee -a log-install.txt
-echo "   [#000066]-------------------------------------------------------"  | tee -a log-install.txt
+echo "   Penjelasan script dan setup VPS"| tee -a log-install.txt
+echo "   dapat dilihat di: http://bit.ly/penjelasansetup"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "[#000066]Informasi Penting"  | tee -a log-install.txt
-echo "   [#000066]- Download Config OpenVPN : http://$MYIP:80/client.ovpn"  | tee -a log-install.txt
-echo "   [#000066]  Mirror (*.tar.gz)       : http://$MYIP:80/openvpn.tar.gz"  | tee -a log-install.txt
-echo "   [#000066]- Webmin                  : http://$MYIP:10000/"  | tee -a log-install.txt
-echo "   [#000066]- Vnstat                  : http://$MYIP:80/vnstat/"  | tee -a log-install.txt
-echo "   [#000066]- MRTG                    : http://$MYIP:80/mrtg/"  | tee -a log-install.txt
-echo "   [#000066]- Log Instalasi           : cat /root/log-install.txt"  | tee -a log-install.txt
-echo "   [#000066] user & password root"  | tee -a log-install.txt
+echo "Informasi Penting"  | tee -a log-install.txt
+echo "   - Download Config OpenVPN : http://$MYIP:85/client.ovpn"  | tee -a log-install.txt
+echo "     Mirror (*.tar.gz)       : http://$MYIP:85/openvpn.tar.gz"  | tee -a log-install.txt
+echo "   - Webmin                  : http://$MYIP:10000/"  | tee -a log-install.txt
+echo "   - Vnstat                  : http://$MYIP:85/vnstat/"  | tee -a log-install.txt
+echo "   - MRTG                    : http://$MYIP:85/mrtg/"  | tee -a log-install.txt
+echo "   - Log Instalasi           : cat /root/log-install.txt"  | tee -a log-install.txt
+echo "     NB: User & Password Webmin adalah sama dengan user & password root"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "----------- -------------------------------------------------------------------------- ------------"
+echo "----------- Script Created By vpn-thai ------------"
