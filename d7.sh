@@ -261,7 +261,7 @@ route-method exe
 route-delay 2
 http-proxy-retry
 http-proxy $MYIP 8080
-remote $MYIP:1194@lvs.truhits.in.th
+remote $MYIP:1194@lvs.truehits.in.th
 cipher AES-128-CBC
 END
 echo '<ca>' >> /home/vps/public_html/client.ovpn
