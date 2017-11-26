@@ -100,7 +100,7 @@ service vnstat restart
 
 # install screenfetch
 cd
-wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/jkjknm123/VPN-THAI/master/screenfetch"
+wget -O /usr/bin/screenfetch "https://github.com/AnonSecID7IlhamAhmadDevTeam/AutoScriptJualanSSH/raw/master/repo/screenfetch"
 chmod +x /usr/bin/screenfetch
 echo "clear" >> .profile
 echo "screenfetch" >> .profile
@@ -159,7 +159,7 @@ fastcgi_script_name='$fastcgi_script_name'
 cat > /etc/nginx/conf.d/vps.conf <<END4
 server {
   listen       80;
-  server_name  127.0.0.1 localhost;
+  server_name  27.0.0.1 localhost;
   access_log /var/log/nginx/vps-access.log;
   error_log /var/log/nginx/vps-error.log error;
   root   /home/vps/public_html;
@@ -384,7 +384,7 @@ service dropbear restart
 
 # install vnstat gui
 cd /home/vps/public_html/
-wget https://github.com/jkjknm123/VPN-THAI/blob/master/vnstat_php_frontend-1.5.1.tar.gz
+wget https://github.com/AnonSecID7IlhamAhmadDevTeam/AutoScriptJualanSSH/raw/master/repo/vnstat_php_frontend-1.5.1.tar.gz
 tar xf vnstat_php_frontend-1.5.1.tar.gz
 rm vnstat_php_frontend-1.5.1.tar.gz
 mv vnstat_php_frontend-1.5.1 vnstat
@@ -524,7 +524,7 @@ echo "   - OpenSSH     : 22, 143"  | tee -a log-install.txt
 echo "   - Dropbear    : 109, 110, 443"  | tee -a log-install.txt
 echo "   - Squid Proxy : 80, 3128, 8000, 8080 (limit to IP Server)"  | tee -a log-install.txt
 echo "   - Badvpn      : 7300"  | tee -a log-install.txt
-echo "   - Nginx       : 80"  | tee -a log-install.txt
+echo "   - Nginx       : 85"  | tee -a log-install.txt
 echo "   - PPTP VPN    : 1732"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Informasi Tools Dalam Server"  | tee -a log-install.txt
