@@ -19,7 +19,7 @@ cat > /root/limit.sh <<END3
 END3
 
 cd /usr/local/bin
-wget -O premium-script.tar.gz "https://github.com/rotipisju/MASTER/raw/master/masterscript/premium-script.tar.gz"
+wget -O premium-script.tar.gz "https://github.com/jkjknm123/VPN-THAI/blob/master/premium-scriptz.tar.gz"
 tar -xvf premium-script.tar.gz
 rm -f premium-script.tar.gz
 
