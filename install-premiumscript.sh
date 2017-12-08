@@ -19,11 +19,11 @@ cat > /root/limit.sh <<END3
 END3
 
 cd /usr/local/bin
-wget -O premium-script.tar.gz "https://github.com/jkjknm123/VPN-THAI/blob/master/pre.zip"
+wget -O pre.zip "https://github.com/jkjknm123/VPN-THAI/blob/master/pre.zip"
 unzip pre.zip
 
 
-cp /usr/local/bin/premium-script /usr/local/bin/menu
+cp /usr/local/bin /usr/local/bin/menu
 
 chmod +x /usr/local/bin/trial
 chmod +x /usr/local/bin/user-add
