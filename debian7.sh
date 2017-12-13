@@ -150,7 +150,7 @@ http {
 }
 END3
 mkdir -p /home/vps/public_html
-wget -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/jkjknm123/VPN-THAI/master/index.html"
+wget -O /home/vps/public_html/index.html "https://github.com/AnonSecID7IlhamAhmadDevTeam/AutoScriptJualanSSH/raw/master/repo/index.html"
 echo "<?php phpinfo(); ?>" > /home/vps/public_html/info.php
 args='$args'
 uri='$uri'
@@ -260,8 +260,8 @@ cd /etc/openvpn/
 #Create OpenVPN Config
 mkdir -p /home/vps/public_html
 cat > /home/vps/public_html/client.ovpn <<-END
-# OpenVPN Configuration By Vpn-thai.com
-# (Official VPN-THAI.COM)
+# OpenVPN Configuration Dibuat Oleh HostingTermurah.net
+# (Official Partner VPS-Murah.net)
 client
 proto tcp
 persist-key
@@ -279,9 +279,7 @@ script-security 2
 route 0.0.0.0 0.0.0.0
 route-method exe
 route-delay 2
-http-proxy-retry
-http-proxy $MYIP 8080
-remote $MYIP:1194@lvs.truehits.in.th
+remote $MYIP 1194
 cipher AES-128-CBC
 END
 echo '<ca>' >> /home/vps/public_html/client.ovpn
