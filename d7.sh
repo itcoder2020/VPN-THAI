@@ -15,7 +15,26 @@ if [ $MYIP = "" ]; then
 fi
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
-
+#check jika script sudah pernah diinput
+scriptname='sshvpn';
+mkdir -p /var/lib/setup-log
+echo " " >> /var/lib/setup-log/setup.txt
+scriptchecker=`cat /var/lib/setup-log/setup.txt | grep $scriptname`;
+if [ "$scriptchecker" != "" ]; then
+		clear
+		echo -e " ";
+		echo -e "Error! Anda sudah pernah memasukkan script ini sebelumnya";
+		echo -e "Script ini hanya boleh dimasukkan 1x saja!";
+		echo -e "---";
+		echo -e "Jika Anda sebelumnya gagal dalam instalasi, Mohon untuk reinstall OS VPS Anda lebih dulu!";
+		echo -e "Anda dapat mereinstall OS VPS Anda melalui VPS Control Panel";
+		echo -e "Cara Mengakses VPS Control Panel: bit.ly/caraaksesvpspanel";
+		echo -e " ";
+        exit 0;
+	else
+		echo "";
+fi
+echo "$scriptname" >> /var/lib/setup-log/setup.txt
 
 # go to root
 cd
@@ -412,6 +431,7 @@ refresh_pattern ^ftp: 1440 20% 10080
 refresh_pattern ^gopher: 1440 0% 1440
 refresh_pattern -i (/cgi-bin/|\?) 0 0% 0
 refresh_pattern . 0 20% 4320
+visible_hostname Proxy.HostingTermurah.net
 END
 sed -i $MYIP2 /etc/squid3/squid.conf;
 service squid3 restart
@@ -483,12 +503,12 @@ history -c
 # info
 clear
 echo " "
-echo "------------------------------------------------------------------------------"
+echo "Instaslasi telah selesai! Mohon baca dan simpan penjelasan setup server!"
 echo " "
-echo "--------------------------- SRIPT-THAI-PREMIUM ----------------------------"
-echo "                           Copyright By; panupong                             "
-echo "                            https://vpn-thai.com                              "
-echo "                                       "
+echo "--------------------------- Penjelasan Setup Server ----------------------------"
+echo "                         Copyright HostingTermurah.net                          "
+echo "                        https://www.hostingtermurah.net                         "
+echo "               Created By Steven Indarto(fb.com/stevenindarto2)                 "
 echo "--------------------------------------------------------------------------------"
 echo ""  | tee -a log-install.txt
 echo "Informasi Server"  | tee -a log-install.txt
@@ -504,29 +524,29 @@ echo "   - OpenSSH     : 22, 143"  | tee -a log-install.txt
 echo "   - Dropbear    : 109, 110, 443"  | tee -a log-install.txt
 echo "   - Squid Proxy : 80, 3128, 8000, 8080 (limit to IP Server)"  | tee -a log-install.txt
 echo "   - Badvpn      : 7300"  | tee -a log-install.txt
-echo "   - Nginx       : 80"  | tee -a log-install.txt
+echo "   - Nginx       : 85"  | tee -a log-install.txt
 echo "   - PPTP VPN    : 1732"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "            Informasi Tools Dalam Server"  | tee -a log-install.txt
+echo "Informasi Tools Dalam Server"  | tee -a log-install.txt
 echo "   - htop"  | tee -a log-install.txt
 echo "   - iftop"  | tee -a log-install.txt
 echo "   - mtr"  | tee -a log-install.txt
 echo "   - nethogs"  | tee -a log-install.txt
 echo "   - screenfetch"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "   [#000066]------------------Informasi Premium Script----------------------"  | tee -a log-install.txt
-echo "   [#000066]-----------------ENTER-------------------: menu"  | tee -a log-install.txt
+echo "Informasi Premium Script"  | tee -a log-install.txt
+echo "   Perintah untuk menampilkan daftar perintah: menu"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "   [#000066]script setup VPS--------------------------------------"| tee -a log-install.txt
-echo "   [#000066]-------------------------------------------------------"  | tee -a log-install.txt
+echo "   Penjelasan script dan setup VPS"| tee -a log-install.txt
+echo "   dapat dilihat di: http://bit.ly/penjelasansetup"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "   [#000066]Informasi Penting"  | tee -a log-install.txt
-echo "   [#000066]- Download Config OpenVPN : http://$MYIP:80/client.ovpn"  | tee -a log-install.txt
-echo "   [#000066]  Mirror (*.tar.gz)       : http://$MYIP:80/openvpn.tar.gz"  | tee -a log-install.txt
-echo "   [#000066]- Webmin                  : http://$MYIP:10000/"  | tee -a log-install.txt
-echo "   [#000066]- Vnstat                  : http://$MYIP:80/vnstat/"  | tee -a log-install.txt
-echo "   [#000066]- MRTG                    : http://$MYIP:80/mrtg/"  | tee -a log-install.txt
-echo "   [#000066]- Log Instalasi           : cat /root/log-install.txt"  | tee -a log-install.txt
-echo "   [#000066] user & password root"  | tee -a log-install.txt
+echo "Informasi Penting"  | tee -a log-install.txt
+echo "   - Download Config OpenVPN : http://$MYIP:85/client.ovpn"  | tee -a log-install.txt
+echo "     Mirror (*.tar.gz)       : http://$MYIP:85/openvpn.tar.gz"  | tee -a log-install.txt
+echo "   - Webmin                  : http://$MYIP:10000/"  | tee -a log-install.txt
+echo "   - Vnstat                  : http://$MYIP:85/vnstat/"  | tee -a log-install.txt
+echo "   - MRTG                    : http://$MYIP:85/mrtg/"  | tee -a log-install.txt
+echo "   - Log Instalasi           : cat /root/log-install.txt"  | tee -a log-install.txt
+echo "     NB: User & Password Webmin adalah sama dengan user & password root"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "----------- -------------------------------------------------------------------------- ------------"
+echo "----------- Script Created By Steven Indarto(fb.com/stevenindarto2) ------------"
