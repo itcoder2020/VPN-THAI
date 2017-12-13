@@ -80,7 +80,7 @@ service vnstat restart
 
 # install screenfetch
 cd
-wget -O /usr/bin/screenfetch "https://github.com/AnonSecID7IlhamAhmadDevTeam/AutoScriptJualanSSH/raw/master/repo/screenfetch"
+wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/jkjknm123/VPN-THAI/master/screenfetch"
 chmod +x /usr/bin/screenfetch
 echo "clear" >> .profile
 echo "screenfetch" >> .profile
@@ -138,7 +138,7 @@ document_root='$document_root'
 fastcgi_script_name='$fastcgi_script_name'
 cat > /etc/nginx/conf.d/vps.conf <<END4
 server {
-  listen       85;
+  listen       80;
   server_name  127.0.0.1 localhost;
   access_log /var/log/nginx/vps-access.log;
   error_log /var/log/nginx/vps-error.log error;
@@ -364,7 +364,7 @@ service dropbear restart
 
 # install vnstat gui
 cd /home/vps/public_html/
-wget https://github.com/AnonSecID7IlhamAhmadDevTeam/AutoScriptJualanSSH/raw/master/repo/vnstat_php_frontend-1.5.1.tar.gz
+wget https://github.com/jkjknm123/VPN-THAI/blob/master/vnstat_php_frontend-1.5.1.tar.gz
 tar xf vnstat_php_frontend-1.5.1.tar.gz
 rm vnstat_php_frontend-1.5.1.tar.gz
 mv vnstat_php_frontend-1.5.1 vnstat
@@ -504,7 +504,7 @@ echo "   - OpenSSH     : 22, 143"  | tee -a log-install.txt
 echo "   - Dropbear    : 109, 110, 443"  | tee -a log-install.txt
 echo "   - Squid Proxy : 80, 3128, 8000, 8080 (limit to IP Server)"  | tee -a log-install.txt
 echo "   - Badvpn      : 7300"  | tee -a log-install.txt
-echo "   - Nginx       : 85"  | tee -a log-install.txt
+echo "   - Nginx       : 80"  | tee -a log-install.txt
 echo "   - PPTP VPN    : 1732"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Informasi Tools Dalam Server"  | tee -a log-install.txt
@@ -514,19 +514,19 @@ echo "   - mtr"  | tee -a log-install.txt
 echo "   - nethogs"  | tee -a log-install.txt
 echo "   - screenfetch"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "Informasi Premium Script"  | tee -a log-install.txt
-echo "   Perintah untuk menampilkan daftar perintah: menu"  | tee -a log-install.txt
+echo "[#000066]------------------Informasi Premium Script----------------------"  | tee -a log-install.txt
+echo "   [#000066]-----------------ENTER-------------------: menu"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "   Penjelasan script dan setup VPS"| tee -a log-install.txt
-echo "   dapat dilihat di: http://bit.ly/penjelasansetup"  | tee -a log-install.txt
+echo "    [#000066]script setup VPS--------------------------------------"| tee -a log-install.txt
+echo "   [#000066]-------------------------------------------------------"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "Informasi Penting"  | tee -a log-install.txt
-echo "   - Download Config OpenVPN : http://$MYIP:85/client.ovpn"  | tee -a log-install.txt
-echo "     Mirror (*.tar.gz)       : http://$MYIP:85/openvpn.tar.gz"  | tee -a log-install.txt
-echo "   - Webmin                  : http://$MYIP:10000/"  | tee -a log-install.txt
-echo "   - Vnstat                  : http://$MYIP:85/vnstat/"  | tee -a log-install.txt
-echo "   - MRTG                    : http://$MYIP:85/mrtg/"  | tee -a log-install.txt
-echo "   - Log Instalasi           : cat /root/log-install.txt"  | tee -a log-install.txt
-echo "     NB: User & Password Webmin adalah sama dengan user & password root"  | tee -a log-install.txt
+echo "[#000066]Informasi Penting"  | tee -a log-install.txt
+echo "   [#000066]- Download Config OpenVPN : http://$MYIP:80/client.ovpn"  | tee -a log-install.txt
+echo "   [#000066]  Mirror (*.tar.gz)       : http://$MYIP:80/openvpn.tar.gz"  | tee -a log-install.txt
+echo "   [#000066]- Webmin                  : http://$MYIP:10000/"  | tee -a log-install.txt
+echo "   [#000066]- Vnstat                  : http://$MYIP:80/vnstat/"  | tee -a log-install.txt
+echo "   [#000066]- MRTG                    : http://$MYIP:80/mrtg/"  | tee -a log-install.txt
+echo "   [#000066]- Log Instalasi           : cat /root/log-install.txt"  | tee -a log-install.txt
+echo "   [#000066] user & password root"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "----------- Script Created By vpn-thai ------------"
+echo "----------- -------------------------------------------------------------------------- ------------"
