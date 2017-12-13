@@ -16,6 +16,7 @@ fi
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
 
+
 # go to root
 cd
 
@@ -80,7 +81,7 @@ service vnstat restart
 
 # install screenfetch
 cd
-wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/jkjknm123/VPN-THAI/master/screenfetch"
+wget -O /usr/bin/screenfetch "https://github.com/AnonSecID7IlhamAhmadDevTeam/AutoScriptJualanSSH/raw/master/repo/screenfetch"
 chmod +x /usr/bin/screenfetch
 echo "clear" >> .profile
 echo "screenfetch" >> .profile
@@ -138,7 +139,7 @@ document_root='$document_root'
 fastcgi_script_name='$fastcgi_script_name'
 cat > /etc/nginx/conf.d/vps.conf <<END4
 server {
-  listen       80;
+  listen       85;
   server_name  127.0.0.1 localhost;
   access_log /var/log/nginx/vps-access.log;
   error_log /var/log/nginx/vps-error.log error;
@@ -364,7 +365,7 @@ service dropbear restart
 
 # install vnstat gui
 cd /home/vps/public_html/
-wget https://github.com/jkjknm123/VPN-THAI/blob/master/vnstat_php_frontend-1.5.1.tar.gz
+wget https://github.com/AnonSecID7IlhamAhmadDevTeam/AutoScriptJualanSSH/raw/master/repo/vnstat_php_frontend-1.5.1.tar.gz
 tar xf vnstat_php_frontend-1.5.1.tar.gz
 rm vnstat_php_frontend-1.5.1.tar.gz
 mv vnstat_php_frontend-1.5.1 vnstat
@@ -411,7 +412,6 @@ refresh_pattern ^ftp: 1440 20% 10080
 refresh_pattern ^gopher: 1440 0% 1440
 refresh_pattern -i (/cgi-bin/|\?) 0 0% 0
 refresh_pattern . 0 20% 4320
-visible_hostname Proxy.HostingTermurah.net
 END
 sed -i $MYIP2 /etc/squid3/squid.conf;
 service squid3 restart
@@ -459,7 +459,7 @@ iptables-restore < /etc/iptables.up.rules
 
 # download script
 cd
-wget https://raw.githubusercontent.com/jkjknm123/VPN-THAI/master/install-premiumscript.sh -O - -o /dev/null|sh
+wget https://github.com/AnonSecID7IlhamAhmadDevTeam/AutoScriptJualanSSH/raw/master/repo/install-premiumscript.sh -O - -o /dev/null|sh
 
 # finalisasi
 apt-get -y autoremove
@@ -507,20 +507,20 @@ echo "   - Badvpn      : 7300"  | tee -a log-install.txt
 echo "   - Nginx       : 80"  | tee -a log-install.txt
 echo "   - PPTP VPN    : 1732"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "Informasi Tools Dalam Server"  | tee -a log-install.txt
+echo "            Informasi Tools Dalam Server"  | tee -a log-install.txt
 echo "   - htop"  | tee -a log-install.txt
 echo "   - iftop"  | tee -a log-install.txt
 echo "   - mtr"  | tee -a log-install.txt
 echo "   - nethogs"  | tee -a log-install.txt
 echo "   - screenfetch"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "[#000066]------------------Informasi Premium Script----------------------"  | tee -a log-install.txt
+echo "   [#000066]------------------Informasi Premium Script----------------------"  | tee -a log-install.txt
 echo "   [#000066]-----------------ENTER-------------------: menu"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "    [#000066]script setup VPS--------------------------------------"| tee -a log-install.txt
+echo "   [#000066]script setup VPS--------------------------------------"| tee -a log-install.txt
 echo "   [#000066]-------------------------------------------------------"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "[#000066]Informasi Penting"  | tee -a log-install.txt
+echo "   [#000066]Informasi Penting"  | tee -a log-install.txt
 echo "   [#000066]- Download Config OpenVPN : http://$MYIP:80/client.ovpn"  | tee -a log-install.txt
 echo "   [#000066]  Mirror (*.tar.gz)       : http://$MYIP:80/openvpn.tar.gz"  | tee -a log-install.txt
 echo "   [#000066]- Webmin                  : http://$MYIP:10000/"  | tee -a log-install.txt
